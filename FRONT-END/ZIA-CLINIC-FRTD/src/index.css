@@ -1,0 +1,248 @@
+:root {
+  --gold: #d4af37;
+  --gold-soft: #f3e7b3;
+  --text-dark: #333;
+  --text-light: #666;
+  --bg-main: #fffef8;      /* off-white */
+  --bg-card: #ffffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg-main);
+  color: var(--text-dark);
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  z-index: 1000;
+  border: #333 1px solid;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.navbar li {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--gold);
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--gold);
+}
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    width: 220px;
+    padding: 20px;
+    gap: 15px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+}
+.hero {
+  height: 100vh;
+ 
+}
+@media (max-width: 768px){
+  .hero{
+    height: 100vh;
+  margin-top: 100px;
+  }
+}
+.slide {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 600px;
+}
+
+/* Mobile hero fix */
+@media (max-width: 768px) {
+  .slide {
+    height: 80vh;
+    background-position: top;
+  }
+
+  .overlay h1 {
+    font-size: 2rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+}
+.education {
+  padding: 110px 10%;
+  background: var(--bg-main);
+  text-align: center;
+}
+
+.education h2 {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 80px;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 45px;
+}
+
+.edu-card {
+  background: var(--bg-card);
+  padding: 50px 30px;
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.edu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 55px rgba(212,175,55,0.25);
+}
+
+.edu-card h3 {
+  font-size: 1.7rem;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.edu-card p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+.appointment {
+  padding: 100px 10%;
+  text-align: center;
+  background: #fff;
+}
+
+.form {
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form input,
+.form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.gold-btn {
+  background: var(--gold);
+  color: white;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gold-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(212,175,55,0.4);
+}
+.footer {
+  background: var(--gold);
+  color: white;
+  padding: 25px;
+  text-align: center;
+  font-weight: 500;
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
