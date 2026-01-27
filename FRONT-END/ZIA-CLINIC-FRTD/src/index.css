@@ -246,3 +246,220 @@ body {
     transform: translateY(0);
   }
 }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-shell {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #ffffff 65%, #f6f0df);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-panel {
+  width: 360px;
+  background: #ffffff;
+  padding: 42px 36px;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(194, 165, 90, 0.25);
+  text-align: center;
+}
+
+.logo {
+  font-size: 34px;
+  font-weight: 700;
+  color: #c2a55a;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #777;
+  margin: 8px 0 34px;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.field {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.field input {
+  width: 100%;
+  padding: 15px 14px;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.field label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.3s ease;
+  background: #fff;
+  padding: 0 6px;
+}
+
+.field input:focus + label,
+.field input:valid + label {
+  top: -8px;
+  font-size: 11px;
+  color: #c2a55a;
+}
+
+.field input:focus {
+  border-color: #c2a55a;
+}
+
+.cta {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #d6bc74, #b89b4c);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(194, 165, 90, 0.45);
+}
+
+.footnote {
+  display: block;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.plan-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #ffffff 65%, #f6f0df);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.plans {
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plan-card {
+  position: relative;
+  background: #fff;
+  padding: 26px 22px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  box-shadow: 0 18px 45px rgba(194, 165, 90, 0.22);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.plan-card:hover {
+  transform: translateY(-3px);
+}
+
+.plan-card.active {
+  border-color: #c2a55a;
+}
+
+.plan-card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #c2a55a;
+  margin-bottom: 6px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Radio Circle */
+.radio {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #c2a55a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #c2a55a;
+  border-radius: 50%;
+}
+
+/* Continue Button */
+.continue-btn {
+  margin-top: 30px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #d6bc74, #b89b4c);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(194, 165, 90, 0.4);
+}

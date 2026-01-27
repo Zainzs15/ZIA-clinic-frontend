@@ -29,7 +29,7 @@ style={{ backgroundImage: `url(${img})` }}
 <div className="overlay">
 <h1>Natural Healing with Homeopathy</h1>
 <p>Providing compassionate care for your health</p>
-<button className="gold-btn">Book Appointment</button>
+<a href="./login.jsx"><button className="gold-btn">Book Appointment</button></a>
 </div>
 </div>
 </SwiperSlide>

@@ -5,6 +5,8 @@ import HeroSlider from "./components/HeroSlider";
 // import DoctorSection from "./components/DoctorSection";
 import Appointment from "./components/Appointment";
 import Footer from "./components/Footer";
+import Login from "./components/login";
+import PlanSelect from "./components/PlanSelect";
 
 
 function App() {
@@ -18,6 +20,8 @@ return (
 <Navbar />
 <HeroSlider />
 <Appointment />
+<Login />
+<PlanSelect />
 <Footer />
 </>
 );
