@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import "../index.css";
+import { useNavigate } from "react-router-dom";
 
 const PlanSelect = () => {
   const [selected, setSelected] = useState("basic");
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    navigate("/payment", { state: { plan: selected } });
+  };
 
   return (
     <div className="plan-wrapper">
@@ -39,7 +44,9 @@ const PlanSelect = () => {
         </div>
       </div>
 
-      <button className="continue-btn">Continue</button>
+      <button className="continue-btn" onClick={handleContinue}>
+        Continue to Payment
+      </button>
     </div>
   );
 };

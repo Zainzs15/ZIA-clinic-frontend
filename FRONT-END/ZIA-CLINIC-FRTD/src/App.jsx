@@ -1,31 +1,57 @@
 import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Navbar from "./components/Navbar";
 import HeroSlider from "./components/HeroSlider";
-// import DoctorSection from "./components/DoctorSection";
 import Appointment from "./components/Appointment";
 import Footer from "./components/Footer";
-import Login from "./components/login";
+import Login from "./components/Login";
+import Education from "./components/Education";
+import Contact from "./components/Contact";
+import AppointmentPage from "./components/Apointment";
 import PlanSelect from "./components/PlanSelect";
-
+import Payment from "./components/Payment";
 
 function App() {
-useEffect(() => {
-AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
-}, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
 
+  return (
+    <div className="app-shell">
+      <Navbar />
 
-return (
-<>
-<Navbar />
-<HeroSlider />
-<Appointment />
-<Login />
-<PlanSelect />
-<Footer />
-</>
-);
+      <main className="app-main">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSlider />
+                <Appointment />
+                
+              </>
+            }
+          />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/plans" element={<PlanSelect />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/appointment" element={<AppointmentPage />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
-
 
 export default App;
