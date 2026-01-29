@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const PLAN_PRICES = {
@@ -10,6 +10,7 @@ const API_BASE = "http://localhost:5000";
 
 const Payment = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const plan = location.state?.plan || "basic";
   const amount = PLAN_PRICES[plan] || PLAN_PRICES.basic;
@@ -21,10 +22,9 @@ const Payment = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  const handleConfirm = async (e) => {
+  const handleContinue = (e) => {
     e.preventDefault();
     setError("");
-    setMessage("");
 
     if (!name || !phone) {
       setError("Please enter name and phone.");
@@ -32,43 +32,9 @@ const Payment = () => {
     }
 
     setLoading(true);
-    try {
-      // 1) Record payment (demo – simulates transfer to JazzCash number)
-      const payRes = await fetch(`${API_BASE}/api/payments`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount, plan, name, phone, method }),
-      });
-
-      if (!payRes.ok) throw new Error("Payment failed");
-
-      // 2) Create appointment and assign patient number + time slot
-      const apptRes = await fetch(`${API_BASE}/api/appointments`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, plan }),
-      });
-
-      if (!apptRes.ok) {
-        const j = await apptRes.json().catch(() => null);
-        throw new Error(j?.error || "Failed to create appointment");
-      }
-
-      const apptJson = await apptRes.json();
-      const appt = apptJson.data;
-
-      setMessage(
-        `Payment recorded. Patient #${appt.patientNumber}, slot ${new Date(
-          appt.slotStart
-        ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })} - ${new Date(
-          appt.slotEnd
-        ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}.`
-      );
-    } catch (err) {
-      setError(err.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+    navigate("/confirm-payment", {
+      state: { name, phone, plan, method, amount },
+    });
   };
 
   return (
@@ -91,7 +57,7 @@ const Payment = () => {
           <span>PKR {amount}</span>
         </div>
 
-        <form onSubmit={handleConfirm} className="payment-form">
+        <form onSubmit={handleContinue} className="payment-form">
           <h3>Patient Details</h3>
 
           <div className="login-field">
@@ -189,17 +155,12 @@ const Payment = () => {
           </label>
 
           <button type="submit" className="btn-primary" disabled={loading}>
-            {loading ? "Processing..." : `Pay PKR ${amount}`}
+            {loading ? "Please wait..." : "Continue"}
           </button>
         </form>
 
         {message && <p className="payment-note" style={{ color: "green" }}>{message}</p>}
         {error && <p className="payment-note" style={{ color: "red" }}>{error}</p>}
-
-        <p className="payment-note">
-          Note: This is a demo front-end + backend flow. Actual money transfer and SMS
-          sending must be implemented against the real JazzCash / bank APIs.
-        </p>
       </div>
     </section>
   );

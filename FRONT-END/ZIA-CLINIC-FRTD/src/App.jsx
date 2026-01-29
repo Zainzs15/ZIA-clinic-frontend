@@ -13,6 +13,7 @@ import Contact from "./components/Contact";
 import AppointmentPage from "./components/Apointment";
 import PlanSelect from "./components/PlanSelect";
 import Payment from "./components/Payment";
+import ConfirmPayment from "./components/ConfirmPayment";
 
 function App() {
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/plans" element={<PlanSelect />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/confirm-payment" element={<ConfirmPayment />} />
           <Route path="/education" element={<Education />} />
           <Route path="/appointment" element={<AppointmentPage />} />
           <Route path="/contact" element={<Contact />} />

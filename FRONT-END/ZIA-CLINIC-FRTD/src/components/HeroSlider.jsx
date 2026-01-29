@@ -35,21 +35,17 @@ export default function HeroSlider() {
                   personalized treatment to cure diseases from the root —
                   without side effects.
                 </p>
-
-                <Link to="/login">
-                  <button
-                    className="gold-btn"
-                    data-aos="zoom-in"
-                    data-aos-delay="400"
-                  >
-                    Book Appointment
-                  </button>
-                </Link>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="hero-cta">
+        <Link to="/login">
+          <button className="gold-btn">Book Appointment</button>
+        </Link>
+      </div>
     </section>
   );
 }
